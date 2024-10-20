@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     messageToggle.addEventListener('change', function() {
         if (this.checked) {
-            heroTitle.textContent = "Sidestep the spam and take control of your career.";
-            heroSubtitle.textContent = "Find the remote job you've been dreaming of!";
+            heroTitle.textContent = "Find top remote talent for your team.";
+            heroSubtitle.textContent = "Hire skilled professionals ready to contribute to your success.";
         } else {
             heroTitle.textContent = "Get more remote job interviews.";
             heroSubtitle.textContent = "You've got it from there (remember to unmute your mic though 😉)";
@@ -36,25 +36,25 @@ document.addEventListener('DOMContentLoaded', function() {
     desiredSalary.addEventListener('input', calculateTime);
     startTime.addEventListener('change', calculateTime);
 
-    // Countdown timer
-    function updateCountdown() {
-        const now = new Date();
-        const target = new Date(now.getFullYear(), now.getMonth() + 1, 1); // First day of next month
-        const diff = target - now;
+// Countdown timer
+function updateCountdown() {
+    const now = new Date();
+    const launchDate = new Date('2024-11-20T00:00:00');
+    const diff = launchDate - now;
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    const days = Math.max(Math.floor(diff / (1000 * 60 * 60 * 24)), 0);
+    const hours = Math.max(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), 0);
+    const minutes = Math.max(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)), 0);
+    const seconds = Math.max(Math.floor((diff % (1000 * 60)) / 1000), 0);
 
-        document.querySelector('.countdown span:nth-child(1)').style.setProperty('--value', days);
-        document.querySelector('.countdown span:nth-child(2)').style.setProperty('--value', hours);
-        document.querySelector('.countdown span:nth-child(3)').style.setProperty('--value', minutes);
-        document.querySelector('.countdown span:nth-child(4)').style.setProperty('--value', seconds);
-    }
+    document.querySelector('.countdown span:nth-child(1)').style.setProperty('--value', days);
+    document.querySelector('.countdown span:nth-child(2)').style.setProperty('--value', hours);
+    document.querySelector('.countdown span:nth-child(3)').style.setProperty('--value', minutes);
+    document.querySelector('.countdown span:nth-child(4)').style.setProperty('--value', seconds);
+}
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown(); // Initial call
+setInterval(updateCountdown, 1000);
+updateCountdown(); // Initial call
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -79,4 +79,14 @@ document.addEventListener('DOMContentLoaded', function() {
     cards.forEach(card => {
         observer.observe(card);
     });
+});
+
+// Theme toggle
+const themeController = document.querySelector('.theme-controller');
+themeController.addEventListener('change', function() {
+    if (this.checked) {
+        document.documentElement.setAttribute('data-theme', 'synthwave');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'cupcake');
+    }
 });
