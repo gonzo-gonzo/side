@@ -1,151 +1,328 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="halloween">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>sidestep - remote job referrals</title>
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css" rel="stylesheet" type="text/css" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
-        <style>
-            body {
-                font-family: 'Inter', sans-serif;
-            }
-        </style>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sidestep - remote job referrals</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
 
 <body class="min-h-screen flex flex-col">
     <div class="navbar bg-base-100">
         <div class="navbar-start">
-          <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
-              </svg>
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                </div>
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                    <li><a>Home</a></li>
+                    <li><a>For jobseekers</a></li>
+                    <li><a>For hiring managers</a></li>
+                    <li><a>Contact</a></li>
+                </ul>
             </div>
-            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-              <li><a>Home</a></li>
-              <li><a>For jobseekers</a></li>
-              <li><a>For hiring managers</a></li>
-              <li><a>Contact</a></li>
-            </ul>
-          </div>
         </div>
         <div class="navbar-center">
-          <a class="btn btn-ghost text-xl">sidestep</a>
+            <a class="btn btn-ghost normal-case text-xl">
+                <img src="img/logo_main_w.png" alt="Sidestep Logo" class="h-8">
+            </a>
         </div>
         <div class="navbar-end">
-          <button class="btn btn-ghost btn-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
-          <button class="btn btn-ghost btn-circle">
-            <div class="indicator">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-              </svg>
-              <span class="badge badge-xs badge-primary indicator-item"></span>
-            </div>
-          </button>
-        </div>
-      </div>
-
-
-
-    <main class="flex-grow container mx-auto px-4">
-
-<!-- HERO -->
-<section class="hero py-20 bg-pattern rounded-xl">
-    <div class="hero-content flex-col lg:flex-row-reverse max-w-5xl mx-auto">
-        <img src="img/hero1.png" class="max-w-sm rounded-lg shadow-2xl" alt="Hero Image" />
-        <div class="text-center lg:text-left w-full">
-            <div class="form-control w-full max-w-md mx-auto lg:mx-0 mb-8">
-                <label class="label cursor-pointer justify-start">
-                    <span class="label-text mr-2 flex items-center" id="toggle-left-text">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        I'm looking for a job
-                    </span>
-                    <input type="checkbox" class="toggle toggle-primary mx-2" id="message-toggle" />
-                    <span class="label-text ml-2 flex items-center" id="toggle-right-text">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                        I'm hiring
-                    </span>
-                </label>
-            </div>
-            <div class="hero-text-content" id="hero-text-content">
-                <h1 class="text-5xl font-bold mb-6" id="hero-title">Get more remote job interviews.</h1>
-                <p class="py-6 text-xl" id="hero-subtitle">Then it's over to you.</p>
-                <p class="py-6 text-md" id="hero-subtitle-extra">Just remember to unmute your mic 😉</p>
-                <button class="btn btn-primary">Get Started</button>
-            </div>
+            <button class="btn btn-ghost btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
+            <button class="btn btn-ghost btn-circle">
+                <div class="indicator">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                    <span class="badge badge-xs badge-success indicator-item"></span>
+                </div>
+            </button>
         </div>
     </div>
-</section>
 
-    <!-- TOOLS-->
+
+
+    <main class="flex-grow container mx-auto px-4 mt-8">
+
+        <!-- HERO -->
+        <section class="hero py-20 bg-pattern rounded-xl">
+            <div class="hero-content flex-col lg:flex-row-reverse max-w-5xl mx-auto">
+                <img src="img/hero2.png" class="max-w-sm rounded-lg shadow-2xl" alt="Hero Image" />
+                <div class="text-center lg:text-left w-full">
+                    <div class="form-control w-full max-w-md mx-auto lg:mx-0 mb-8">
+                        <label class="label cursor-pointer justify-start">
+                            <span class="label-text mr-2 flex items-center" id="toggle-left-text">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="mr-1">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                I'm looking for a job
+                            </span>
+                            <input type="checkbox" class="toggle toggle-primary mx-2" id="message-toggle" />
+                            <span class="label-text ml-2 flex items-center" id="toggle-right-text">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                I want to refer someone
+                            </span>
+                        </label>
+                    </div>
+                    <div class="hero-text-content" id="hero-text-content">
+                        <h1 class="text-5xl font-bold mb-6" id="hero-title">
+                        Get more <span class="text-primary">remote job interviews</span>
+                        </h1>
+                        <p class="py-6 text-xl" id="hero-subtitle">Then it's over to you. Just remember to unmute your mic😉</p>
+                        <button class="btn btn-primary" id="hero-action-btn">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FEATURED JOBS-->
 
         <section class="py-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Our Tools</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card bg-base-100 shadow-xl">
+            <h2 class="text-3xl pb-4 mb-8 font-bold text-center">Featured jobs</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card w-96 bg-base-200 shadow-xl mx-auto">
+                    <div class="card-body text-center">
+                        <h2 class="card-title justify-center">Senior Software Engineer</h2>
+                        <p class="text-lg">TechCorp Inc.</p>
+                        <p class="text-lg font-semibold">$120k-$150k</p>
+                        <button class="btn btn-sm btn-secondary mt-2">
+                            $100 interview bonus
+                        </button>
+                        <div class="divider"></div>
+                        <p>Join our team and help build the future of tech!</p>
+                        <div class="card-actions justify-center mt-2">
+                            <div class="badge badge-outline">Tech</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-full rounded-t-none job-action-btn">Get Referred</button>
+                </div>
+                <div class="card w-96 bg-base-200 shadow-xl mx-auto">
+                    <div class="card-body text-center">
+                        <h2 class="card-title justify-center">Senior Software Engineer</h2>
+                        <p class="text-lg">TechCorp Inc.</p>
+                        <p class="text-lg font-semibold">$120k-$150k</p>
+                        <button class="btn btn-sm btn-secondary mt-2">
+                            $100 interview bonus
+                        </button>
+                        <div class="divider"></div>
+                        <p>Join our team and help build the future of tech!</p>
+                        <div class="card-actions justify-center mt-2">
+                            <div class="badge badge-outline">Tech</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-full rounded-t-none job-action-btn">Get Referred</button>
+                </div>
+                <div class="card w-96 bg-base-200 shadow-xl mx-auto">
+                    <div class="card-body text-center">
+                        <h2 class="card-title justify-center">Senior Software Engineer</h2>
+                        <p class="text-lg">TechCorp Inc.</p>
+                        <p class="text-lg font-semibold">$120k-$150k</p>
+                        <button class="btn btn-sm btn-secondary mt-2">
+                            $100 interview bonus
+                        </button>
+                        <div class="divider"></div>
+                        <p>Join our team and help build the future of tech!</p>
+                        <div class="card-actions justify-center mt-2">
+                            <div class="badge badge-outline">Tech</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-full rounded-t-none job-action-btn">Get Referred</button>
+                </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- TOOLS-->
+
+        <section class="py-16 bg-base-200 rounded-xl p-8">
+            <h2 class="text-3xl font-bold mb-8 text-center">Our tools</h2>
+            
+            <h3 class="text-2xl pb-4 mb-6 text-center">To help you navigate the noise</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="card bg-base-100 shadow-xl relative">
+                    <div class="absolute top-2 right-2">
+                        <div class="badge badge-info">In beta</div>
+                    </div>
                     <div class="card-body">
-                        <h2 class="card-title"><i class="fas fa-search mr-2"></i>Boo</h2>
+                        <h2 class="card-title">🕵️‍♂️ Boo</h2>
                         <p>Search engines + boolean parameters = you finding jobs that 99% of people in your industry will miss. Less scrolling, more applying.</p>
                     </div>
                 </div>
-                <div class="card bg-base-100 shadow-xl">
+                <div class="card bg-base-100 shadow-xl relative">
+                    <div class="absolute top-2 right-2">
+                        <div class="badge badge-info">In beta</div>
+                    </div>
                     <div class="card-body">
-                        <h2 class="card-title"><i class="fas fa-stream mr-2"></i>Stream</h2>
+                        <h2 class="card-title">🌊 Stream</h2>
                         <p>Streamline your LinkedIn experience. Bye bye spam, scams, reposts and dodgy recruiters. Hello jobs that actually make you want to hit 'apply'.</p>
                     </div>
                 </div>
-                <div class="card bg-base-100 shadow-xl">
+                <div class="card bg-base-100 shadow-xl relative">
+                    <div class="absolute top-2 right-2">
+                        <div class="badge badge-info">In beta</div>
+                    </div>
                     <div class="card-body">
-                        <h2 class="card-title"><i class="fas fa-lightbulb mr-2"></i>Inspire</h2>
+                        <h2 class="card-title">💡 Inspire</h2>
                         <p>Suggest 10 jobs that aren't on LinkedIn and that you won't have found yourself.</p>
                     </div>
                 </div>
-                <div class="card bg-base-100 shadow-xl">
+            </div>
+        
+            <h3 class="text-2xl font-semibold mb-6 text-center">To help you get stand out from the crowd</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card bg-base-100 shadow-xl relative">
+                    <div class="absolute top-2 right-2">
+                        <div class="badge badge-secondary">In the works</div>
+                    </div>
                     <div class="card-body">
-                        <h2 class="card-title"><i class="fas fa-user-check mr-2"></i>Vouch</h2>
+                        <h2 class="card-title">🤜🤛 Vouch</h2>
                         <p>Great people know great people. Get human referrals from respected industry experts & fast-track your application to the top of the pile.</p>
                     </div>
                 </div>
-                <div class="card bg-base-100 shadow-xl">
+                <div class="card bg-base-100 shadow-xl relative">
+                    <div class="absolute top-2 right-2">
+                        <div class="badge badge-secondary">In the works</div>
+                    </div>
                     <div class="card-body">
-                        <h2 class="card-title">Unicorn</h2>
+                        <h2 class="card-title">🦄 Unicorn</h2>
                         <p>You are not a horse. You're a unicorn. And unicorns shouldn't rely on CVs and covering letters. Increase your chances of a follow-up call from your application by 182%*</p>
                     </div>
                 </div>
-                <div class="card bg-base-100 shadow-xl">
+                <div class="card bg-base-100 shadow-xl relative">
+                    <div class="absolute top-2 right-2">
+                        <div class="badge badge-secondary">In the works</div>
+                    </div>
                     <div class="card-body">
-                        <h2 class="card-title"><i class="fas fa-database mr-2"></i>Recspy</h2>
+                        <h2 class="card-title">🕵️‍♀️ Recspy</h2>
                         <p>Database of internal recruiters and hiring managers in your industry.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-            <!-- CALCULATOR-->
+        <!-- PROS AND CONS-->
 
 
         <section class="py-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Job Application Calculator</h2>
-            <div class="card bg-base-100 shadow-xl">
+            <h2 class="text-3xl font-bold mb-8 text-center">We make things easier</h2>
+            <h3 class="text-2xl pb-4 mb-6 text-center">Save yourself from the eternal cycle of scroll, apply, ghost.</h3>
+            <div class="overflow-x-auto">
+                <table class="table w-full text-lg">
+                    <thead>
+                        <tr>
+                            <th class="rounded-tl-lg"></th>
+                            <th class="bg-green-100 text-center rounded-t-lg">
+                                <span class="text-black text-xl font-bold block">With</span>
+                                <img src="img/logo_main.png" alt="sidestep logo" class="h-6 inline-block">
+                            </th>
+                            <th class="text-center rounded-tr-lg">
+                                <span class="text-red-500 text-xl font-bold block">Without</span>
+                                <img src="img/logo_main_w.png" alt="sidestep logo" class="h-6 inline-block">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rounded-bl-lg">Personalized job recommendations</td>
+                            <td class="bg-green-100 text-center">✅</td>
+                            <td class="text-center rounded-br-lg">❌</td>
+                        </tr>
+                        <tr>
+                            <td class="rounded-bl-lg">Access to hidden job market</td>
+                            <td class="bg-green-100 text-center">✅</td>
+                            <td class="text-center rounded-br-lg">❌</td>
+                        </tr>
+                        <tr>
+                            <td class="rounded-bl-lg">AI-powered application optimization</td>
+                            <td class="bg-green-100 text-center">✅</td>
+                            <td class="text-center rounded-br-lg">❌</td>
+                        </tr>
+                        <tr>
+                            <td class="rounded-bl-lg">Direct connections with hiring managers</td>
+                            <td class="bg-green-100 text-center">✅</td>
+                            <td class="text-center rounded-br-lg">❌</td>
+                        </tr>
+                        <tr>
+                            <td class="rounded-bl-lg">Interview preparation tools</td>
+                            <td class="bg-green-100 text-center">✅</td>
+                            <td class="text-center rounded-br-lg">❌</td>
+                        </tr>
+                        <tr>
+                            <td class="rounded-bl-lg">Salary negotiation support</td>
+                            <td class="bg-green-100 text-center rounded-b-lg">✅</td>
+                            <td class="text-center rounded-br-lg">❌</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+
+
+
+
+        <!-- LOGOS-->
+
+
+        <section class="py-16">
+            <h2 class="text-2xl font-bold mb-8 text-center">Used by 24,676 monthly users including remote workers
+                from...</h2>
+            <div class="flex justify-center space-x-8">
+                <img src="https://via.placeholder.com/150" alt="Company 1" class="h-16">
+                <img src="https://via.placeholder.com/150" alt="Company 2" class="h-16">
+                <img src="https://via.placeholder.com/150" alt="Company 3" class="h-16">
+                <img src="https://via.placeholder.com/150" alt="Company 4" class="h-16">
+            </div>
+        </section>
+
+
+
+
+        <!-- CALCULATOR-->
+
+
+        <section class="py-16 bg-base-200 rounded-xl calculator-section">
+            <h2 class="text-3xl font-bold mb-8 text-center">Save your time (and sanity)</h2>
+            <div class="card bg-base-100 shadow-xl max-w-2xl mx-auto">
                 <div class="card-body">
-                    <h3 class="card-title">Save time on your job search</h3>
+                    <h3 class="card-title text-2xl mb-4">Calculate your potential time savings</h3>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Number of job applications</span>
@@ -154,63 +331,65 @@
                     </div>
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text">Desired salary</span>
+                            <span class="label-text">Target salary</span>
                         </label>
                         <input type="number" placeholder="Enter amount" class="input input-bordered" id="desired-salary" />
                     </div>
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text">Job to start within</span>
+                            <span class="label-text">Desired start time</span>
                         </label>
                         <select class="select select-bordered" id="start-time">
-                            <option value="1">1 month</option>
-                            <option value="3">3 months</option>
-                            <option value="6">6 months</option>
+                            <option value="1">Within 1 month</option>
+                            <option value="3">Within 3 months</option>
+                            <option value="6">Within 6 months</option>
                         </select>
                     </div>
                     <div class="mt-6">
-                        <h4 class="font-bold">Time taken to find a job</h4>
+                        <h4 class="font-bold text-lg">Estimated time for traditional job search:</h4>
                         <div class="stat-value text-primary" id="time-taken">Calculating...</div>
                     </div>
                     <div class="mt-4">
-                        <h4 class="font-bold">Using sidestep</h4>
+                        <h4 class="font-bold text-lg">Estimated time saved for more interesting things:</h4>
                         <div class="stat-value text-secondary" id="sidestep-time">Calculating...</div>
                     </div>
                 </div>
             </div>
         </section>
 
-    <!-- COUNTDOWN-->
 
-    <section class="py-16">
-        <h2 class="text-3xl font-bold mb-8 text-center">Time Until Launch</h2>
-        <div class="grid grid-flow-col gap-5 text-center auto-cols-max justify-center">
-            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                <span class="countdown font-mono text-5xl">
-                    <span style="--value:0;"></span>
-                </span>
-                days
-            </div> 
-            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                <span class="countdown font-mono text-5xl">
-                    <span style="--value:0;"></span>
-                </span>
-                hours
-            </div> 
-            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                <span class="countdown font-mono text-5xl">
-                    <span style="--value:0;"></span>
-                </span>
-                min
-            </div> 
-            <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                <span class="countdown font-mono text-5xl">
-                    <span style="--value:0;"></span>
-                </span>
-                sec
+
+        <!-- COUNTDOWN-->
+
+        <section class="py-16">
+            <h2 class="text-3xl font-bold mb-8 text-center">We re-launch on Wednesday 20th November 🥳</h2>
+            <div class="grid grid-flow-col gap-5 text-center auto-cols-max justify-center">
+                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                    <span class="countdown font-mono text-5xl">
+                        <span style="--value:0;"></span>
+                    </span>
+                    days
+                </div>
+                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                    <span class="countdown font-mono text-5xl">
+                        <span style="--value:0;"></span>
+                    </span>
+                    hours
+                </div>
+                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                    <span class="countdown font-mono text-5xl">
+                        <span style="--value:0;"></span>
+                    </span>
+                    min
+                </div>
+                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                    <span class="countdown font-mono text-5xl">
+                        <span style="--value:0;"></span>
+                    </span>
+                    sec
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
 
@@ -219,23 +398,39 @@
 
     <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
         <div class="grid grid-flow-col gap-4">
-            <a class="link link-hover">About us</a> 
-            <a class="link link-hover">Contact</a> 
-            <a class="link link-hover">Jobs</a> 
+            <a class="link link-hover">About us</a>
+            <a class="link link-hover">Contact</a>
+            <a class="link link-hover">Jobs</a>
             <a class="link link-hover">Press kit</a>
-        </div> 
+        </div>
         <div>
             <div class="grid grid-flow-col gap-4">
-                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></a> 
-                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a> 
-                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                        </path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
+                        </path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+                        </path>
+                    </svg></a>
             </div>
-        </div> 
+        </div>
         <div>
-            <p>Copyright © 2023 - All right reserved by sidestep Ltd</p>
+            <p>Copyright © 2024 - All right reserved by sidestep technology limited</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>

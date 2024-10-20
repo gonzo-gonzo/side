@@ -2,35 +2,44 @@ document.addEventListener('DOMContentLoaded', function() {
     const messageToggle = document.getElementById('message-toggle');
     const heroTitle = document.getElementById('hero-title');
     const heroSubtitle = document.getElementById('hero-subtitle');
-    const heroSubtitleExtra = document.getElementById('hero-subtitle-extra');
     const toggleLeftText = document.getElementById('toggle-left-text');
     const toggleRightText = document.getElementById('toggle-right-text');
     const heroTextContent = document.getElementById('hero-text-content');
+    const jobActionBtns = document.querySelectorAll('.job-action-btn');
+    const heroActionBtn = document.getElementById('hero-action-btn');
 
     // Set initial width
     let initialWidth = heroTextContent.offsetWidth;
     heroTextContent.style.width = `${initialWidth}px`;
 
+    function updateContent(isReferring) {
+        if (isReferring) {
+            heroTitle.innerHTML = "Help your friends <span class='text-primary'>get noticed</span>";
+            heroSubtitle.textContent = "5 minutes could change someone's career.";
+            toggleLeftText.classList.remove('font-bold');
+            toggleRightText.classList.add('font-bold');
+            jobActionBtns.forEach(btn => btn.textContent = "Refer Someone");
+            if (heroActionBtn) heroActionBtn.textContent = "Refer Someone";
+        } else {
+            heroTitle.innerHTML = "Get more <span class='text-primary'>remote job interviews</span>";
+            heroSubtitle.textContent = "Then it's over to you. Just remember to unmute your mic 😉";
+            toggleLeftText.classList.add('font-bold');
+            toggleRightText.classList.remove('font-bold');
+            jobActionBtns.forEach(btn => btn.textContent = "Get Referred");
+            if (heroActionBtn) heroActionBtn.textContent = "Get Referred";
+        }
+    }
+
     if (messageToggle) {
         messageToggle.addEventListener('change', function() {
-            if (this.checked) {
-                heroTitle.textContent = "Find top remote talent for your team.";
-                heroSubtitle.textContent = "Hire skilled professionals ready to contribute to your success.";
-                heroSubtitleExtra.textContent = "";
-                toggleLeftText.classList.remove('font-bold');
-                toggleRightText.classList.add('font-bold');
-            } else {
-                heroTitle.textContent = "Get more remote job interviews.";
-                heroSubtitle.textContent = "Then it's over to you.";
-                heroSubtitleExtra.textContent = "Just remember to unmute your mic 😉";
-                toggleLeftText.classList.add('font-bold');
-                toggleRightText.classList.remove('font-bold');
-            }
+            updateContent(this.checked);
         });
 
         // Set initial state
-        toggleLeftText.classList.add('font-bold');
+        updateContent(messageToggle.checked);
     }
+
+
 
     // Job Application Calculator
     const jobApps = document.getElementById('job-apps');
