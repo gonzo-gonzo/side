@@ -2,33 +2,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const messageToggle = document.getElementById('message-toggle');
     const heroTitle = document.getElementById('hero-title');
     const heroSubtitle = document.getElementById('hero-subtitle');
+    const heroSubtitleExtra = document.getElementById('hero-subtitle-extra');
     const toggleLeftText = document.getElementById('toggle-left-text');
     const toggleRightText = document.getElementById('toggle-right-text');
-    const heroTextContent = document.querySelector('.hero-text-content');
+    const heroTextContent = document.getElementById('hero-text-content');
+
+    // Set initial width
+    let initialWidth = heroTextContent.offsetWidth;
+    heroTextContent.style.width = `${initialWidth}px`;
 
     if (messageToggle) {
         messageToggle.addEventListener('change', function() {
             if (this.checked) {
                 heroTitle.textContent = "Find top remote talent for your team.";
                 heroSubtitle.textContent = "Hire skilled professionals ready to contribute to your success.";
+                heroSubtitleExtra.textContent = "";
                 toggleLeftText.classList.remove('font-bold');
                 toggleRightText.classList.add('font-bold');
             } else {
                 heroTitle.textContent = "Get more remote job interviews.";
-                heroSubtitle.textContent = "You've got it from there (remember to unmute your mic though 😉)";
+                heroSubtitle.textContent = "Then it's over to you.";
+                heroSubtitleExtra.textContent = "Just remember to unmute your mic 😉";
                 toggleLeftText.classList.add('font-bold');
                 toggleRightText.classList.remove('font-bold');
             }
-            
-            // Force a reflow to maintain the width
-            heroTextContent.style.minWidth = heroTextContent.offsetWidth + 'px';
         });
 
         // Set initial state
         toggleLeftText.classList.add('font-bold');
-        
-        // Set initial width
-        heroTextContent.style.minWidth = heroTextContent.offsetWidth + 'px';
     }
 
     // Job Application Calculator
