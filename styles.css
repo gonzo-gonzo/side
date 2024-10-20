@@ -220,3 +220,14 @@
         margin: 0 1rem;
     }
 }
+
+.btn-sm.btn-secondary {
+    text-transform: none;
+}
+
+/* Adjust the "With" and "Without" text size on mobile */
+@media (max-width: 640px) {
+    .table th .text-xl {
+        font-size: 1rem;
+    }
+}

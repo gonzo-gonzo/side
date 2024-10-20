@@ -41,30 +41,76 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    // Job Application Calculator
-    const jobApps = document.getElementById('job-apps');
-    const desiredSalary = document.getElementById('desired-salary');
-    const startTime = document.getElementById('start-time');
-    const timeTaken = document.getElementById('time-taken');
-    const sidestepTime = document.getElementById('sidestep-time');
+   // Calculator functionality
+const jobApps = document.getElementById('job-apps');
+const salaryRange = document.getElementById('salary-range');
+const salaryDisplay = document.getElementById('salary-display');
+const currencySelect = document.getElementById('currency-select');
+const startTime = document.getElementById('start-time');
+const timeTaken = document.getElementById('time-taken');
+const sidestepTime = document.getElementById('sidestep-time');
 
-    function calculateTime() {
-        const apps = parseInt(jobApps.value) || 0;
-        const salary = parseInt(desiredSalary.value) || 0;
-        const months = parseInt(startTime.value) || 1;
+function formatSalary(value) {
+    return new Intl.NumberFormat('en-US').format(value);
+}
 
-        const regularTime = apps * 2 * months; // Assuming 2 hours per application
-        const sidestepTimeValue = regularTime * 0.6; // 40% faster with sidestep
+function updateSalaryDisplay() {
+    const currency = currencySelect.value;
+    const salary = formatSalary(salaryRange.value);
+    salaryDisplay.textContent = `${currency}${salary}`;
+}
 
-        timeTaken.textContent = `${regularTime} hours`;
-        sidestepTime.textContent = `${sidestepTimeValue.toFixed(1)} hours`;
+function calculateTime() {
+    const apps = parseInt(jobApps.value) || 10;
+    const salary = parseInt(salaryRange.value) || 50000;
+    const months = parseInt(startTime.value) || 1;
+
+    // Adjust time per application based on salary
+    let timePerApp = 2; // Base time in hours
+    if (salary > 100000) {
+        timePerApp = 2.5;
+    } else if (salary > 150000) {
+        timePerApp = 3;
+    } else if (salary > 200000) {
+        timePerApp = 3.5;
     }
 
-    if (jobApps && desiredSalary && startTime) {
-        jobApps.addEventListener('input', calculateTime);
-        desiredSalary.addEventListener('input', calculateTime);
-        startTime.addEventListener('change', calculateTime);
+    const regularTime = apps * timePerApp * months;
+    const sidestepTimeValue = regularTime * 0.6; // 40% faster with sidestep
+
+    timeTaken.textContent = `${regularTime} hours`;
+    sidestepTime.textContent = `${Math.round(sidestepTimeValue)} hours`;
+}
+
+if (salaryRange && salaryDisplay && currencySelect) {
+    salaryRange.addEventListener('input', updateSalaryDisplay);
+    currencySelect.addEventListener('change', updateSalaryDisplay);
+    updateSalaryDisplay(); // Initial call
+}
+
+if (jobApps && salaryRange && startTime) {
+    jobApps.addEventListener('input', calculateTime);
+    salaryRange.addEventListener('input', calculateTime);
+    startTime.addEventListener('change', calculateTime);
+    calculateTime(); // Initial call
+}
+
+// Set initial placeholder for job applications
+if (jobApps) {
+    jobApps.placeholder = "10";
+}
+
+// Update salary display when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    if (salaryRange && salaryDisplay && currencySelect) {
+        updateSalaryDisplay();
     }
+});
+
+
+
+
+
 
     // Countdown timer
     function updateCountdown() {

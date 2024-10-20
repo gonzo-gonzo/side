@@ -248,11 +248,11 @@
                             <th class="rounded-tl-lg"></th>
                             <th class="bg-green-100 text-center rounded-t-lg">
                                 <span class="text-black text-xl font-bold block">With</span>
-                                <img src="img/logo_main.png" alt="sidestep logo" class="h-6 inline-block">
+                                <img src="img/logo_main.png" alt="sidestep logo" class="h-4 sm:h-6 inline-block">
                             </th>
                             <th class="text-center rounded-tr-lg">
                                 <span class="text-red-500 text-xl font-bold block">Without</span>
-                                <img src="img/logo_main_w.png" alt="sidestep logo" class="h-6 inline-block">
+                                <img src="img/logo_main_w.png" alt="sidestep logo" class="h-4 sm:h-6 inline-block">
                             </th>
                         </tr>
                     </thead>
@@ -323,15 +323,23 @@
                     <h3 class="card-title text-2xl mb-4">Calculate your potential time savings</h3>
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text">Number of job applications</span>
+                            <span class="label-text">Monthly job applications</span>
                         </label>
-                        <input type="number" placeholder="Enter number" class="input input-bordered" id="job-apps" />
+                        <input type="number" placeholder="10" class="input input-bordered" id="job-apps" />
                     </div>
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text">Target salary</span>
+                            <span class="label-text">Base salary</span>
                         </label>
-                        <input type="number" placeholder="Enter amount" class="input input-bordered" id="desired-salary" />
+                        <div class="flex items-center">
+                            <select class="select select-bordered w-20 mr-2" id="currency-select">
+                                <option value="$">$</option>
+                                <option value="£">£</option>
+                                <option value="€">€</option>
+                            </select>
+                            <input type="range" min="10000" max="250000" value="50000" step="1000" class="range range-primary flex-grow" id="salary-range" />
+                            <span class="ml-2 w-24 text-right" id="salary-display">50,000</span>
+                        </div>
                     </div>
                     <div class="form-control">
                         <label class="label">
@@ -344,17 +352,16 @@
                         </select>
                     </div>
                     <div class="mt-6">
-                        <h4 class="font-bold text-lg">Estimated time for traditional job search:</h4>
+                        <h4 class="font-bold text-lg">Estimated time for traditional job search</h4>
                         <div class="stat-value text-primary" id="time-taken">Calculating...</div>
                     </div>
                     <div class="mt-4">
-                        <h4 class="font-bold text-lg">Estimated time saved for more interesting things:</h4>
+                        <h4 class="font-bold text-lg">Hours you get back to spend doing more interesting things</h4>
                         <div class="stat-value text-secondary" id="sidestep-time">Calculating...</div>
                     </div>
                 </div>
             </div>
         </section>
-
 
 
         <!-- COUNTDOWN-->
@@ -394,7 +401,7 @@
 
     </main>
 
-    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+    <footer class="footer footer-center p-10 bg-pattern text-base-content rounded">
         <div class="grid grid-flow-col gap-4">
             <a class="link link-hover">About us</a>
             <a class="link link-hover">Contact</a>
