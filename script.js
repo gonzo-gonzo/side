@@ -2,16 +2,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const messageToggle = document.getElementById('message-toggle');
     const heroTitle = document.getElementById('hero-title');
     const heroSubtitle = document.getElementById('hero-subtitle');
+    const toggleLeftText = document.getElementById('toggle-left-text');
+    const toggleRightText = document.getElementById('toggle-right-text');
+    const heroTextContent = document.querySelector('.hero-text-content');
 
-    messageToggle.addEventListener('change', function() {
-        if (this.checked) {
-            heroTitle.textContent = "Find top remote talent for your team.";
-            heroSubtitle.textContent = "Hire skilled professionals ready to contribute to your success.";
-        } else {
-            heroTitle.textContent = "Get more remote job interviews.";
-            heroSubtitle.textContent = "You've got it from there (remember to unmute your mic though 😉)";
-        }
-    });
+    if (messageToggle) {
+        messageToggle.addEventListener('change', function() {
+            if (this.checked) {
+                heroTitle.textContent = "Find top remote talent for your team.";
+                heroSubtitle.textContent = "Hire skilled professionals ready to contribute to your success.";
+                toggleLeftText.classList.remove('font-bold');
+                toggleRightText.classList.add('font-bold');
+            } else {
+                heroTitle.textContent = "Get more remote job interviews.";
+                heroSubtitle.textContent = "You've got it from there (remember to unmute your mic though 😉)";
+                toggleLeftText.classList.add('font-bold');
+                toggleRightText.classList.remove('font-bold');
+            }
+            
+            // Force a reflow to maintain the width
+            heroTextContent.style.minWidth = heroTextContent.offsetWidth + 'px';
+        });
+
+        // Set initial state
+        toggleLeftText.classList.add('font-bold');
+        
+        // Set initial width
+        heroTextContent.style.minWidth = heroTextContent.offsetWidth + 'px';
+    }
 
     // Job Application Calculator
     const jobApps = document.getElementById('job-apps');
@@ -32,29 +50,34 @@ document.addEventListener('DOMContentLoaded', function() {
         sidestepTime.textContent = `${sidestepTimeValue.toFixed(1)} hours`;
     }
 
-    jobApps.addEventListener('input', calculateTime);
-    desiredSalary.addEventListener('input', calculateTime);
-    startTime.addEventListener('change', calculateTime);
+    if (jobApps && desiredSalary && startTime) {
+        jobApps.addEventListener('input', calculateTime);
+        desiredSalary.addEventListener('input', calculateTime);
+        startTime.addEventListener('change', calculateTime);
+    }
 
-// Countdown timer
-function updateCountdown() {
-    const now = new Date();
-    const launchDate = new Date('2024-11-20T00:00:00');
-    const diff = launchDate - now;
+    // Countdown timer
+    function updateCountdown() {
+        const now = new Date();
+        const launchDate = new Date('2024-11-20T00:00:00');
+        const diff = launchDate - now;
 
-    const days = Math.max(Math.floor(diff / (1000 * 60 * 60 * 24)), 0);
-    const hours = Math.max(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), 0);
-    const minutes = Math.max(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)), 0);
-    const seconds = Math.max(Math.floor((diff % (1000 * 60)) / 1000), 0);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    document.querySelector('.countdown span:nth-child(1)').style.setProperty('--value', days);
-    document.querySelector('.countdown span:nth-child(2)').style.setProperty('--value', hours);
-    document.querySelector('.countdown span:nth-child(3)').style.setProperty('--value', minutes);
-    document.querySelector('.countdown span:nth-child(4)').style.setProperty('--value', seconds);
-}
+        const countdownElements = document.querySelectorAll('.countdown span');
+        if (countdownElements.length === 4) {
+            countdownElements[0].style.setProperty('--value', days);
+            countdownElements[1].style.setProperty('--value', hours);
+            countdownElements[2].style.setProperty('--value', minutes);
+            countdownElements[3].style.setProperty('--value', seconds);
+        }
+    }
 
-setInterval(updateCountdown, 1000);
-updateCountdown(); // Initial call
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -79,14 +102,4 @@ updateCountdown(); // Initial call
     cards.forEach(card => {
         observer.observe(card);
     });
-});
-
-// Theme toggle
-const themeController = document.querySelector('.theme-controller');
-themeController.addEventListener('change', function() {
-    if (this.checked) {
-        document.documentElement.setAttribute('data-theme', 'synthwave');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'cupcake');
-    }
 });

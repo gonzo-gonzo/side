@@ -3,9 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>sidestep - Remote Job Search Platform</title>
+        <title>sidestep - remote job referrals</title>
         <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css" rel="stylesheet" type="text/css" />
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
@@ -26,9 +27,10 @@
               </svg>
             </div>
             <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-              <li><a>Homepage</a></li>
-              <li><a>Portfolio</a></li>
-              <li><a>About</a></li>
+              <li><a>Home</a></li>
+              <li><a>For jobseekers</a></li>
+              <li><a>For hiring managers</a></li>
+              <li><a>Contact</a></li>
             </ul>
           </div>
         </div>
@@ -56,36 +58,40 @@
 
     <main class="flex-grow container mx-auto px-4">
 
-        <!-- HERO-->
-
-        <section class="hero bg-base-200 py-20">
-            <div class="hero-content flex-col lg:flex-row-reverse">
-                <img src="https://cdn.jsdelivr.net/npm/heroicons@2.0.8/outline/rocket-launch.svg" class="max-w-sm rounded-lg shadow-2xl" alt="Rocket Launch" />
-                <div>
-                    <h1 class="text-5xl font-bold" id="hero-title">Get more remote job interviews.</h1>
-                    <p class="py-6" id="hero-subtitle">You've got it from there (remember to unmute your mic though 😉)</p>
-                    <div class="form-control w-52 mb-4">
-                        <label class="flex cursor-pointer gap-2 items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="8.5" cy="7" r="4"></circle>
-                                <line x1="20" y1="8" x2="20" y2="14"></line>
-                                <line x1="23" y1="11" x2="17" y2="11"></line>
-                            </svg>
-                            <input type="checkbox" class="toggle toggle-primary" id="message-toggle" />
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                        </label>
-                    </div>
-                    <button class="btn btn-primary">Get Started</button>
-                </div>
+ <!-- HERO -->
+<section class="hero bg-base-200 py-20">
+    <div class="hero-content flex-col lg:flex-row-reverse max-w-5xl mx-auto">
+        <img src="https://cdn.jsdelivr.net/npm/heroicons@2.0.8/outline/rocket-launch.svg" class="max-w-sm rounded-lg shadow-2xl" alt="Rocket Launch" />
+        <div class="text-center lg:text-left w-full">
+            <div class="form-control w-full max-w-md mx-auto lg:mx-0 mb-8">
+                <label class="label cursor-pointer justify-start">
+                    <span class="label-text mr-2 flex items-center" id="toggle-left-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        I'm looking for a job
+                    </span>
+                    <input type="checkbox" class="toggle toggle-primary mx-2" id="message-toggle" />
+                    <span class="label-text ml-2 flex items-center" id="toggle-right-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        I'm hiring
+                    </span>
+                </label>
             </div>
-        </section>
-
+            <div class="hero-text-content">
+                <h1 class="text-5xl font-bold mb-6" id="hero-title">Get more remote job interviews.</h1>
+                <p class="py-6 text-xl" id="hero-subtitle">You've got it from there (remember to unmute your mic though 😉)</p>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- TOOLS-->
 
@@ -207,7 +213,7 @@
 
 
 
-    
+
     </main>
 
     <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
