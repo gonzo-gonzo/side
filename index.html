@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="cupcake">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remote Job Search Platform</title>
+    <title>sidestep - Remote Job Search Platform</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="min-h-screen flex flex-col">
     <nav class="navbar bg-base-100">
         <div class="flex-1">
-            <a class="btn btn-ghost normal-case text-xl">RemoteJobHub</a>
+            <a class="btn btn-ghost normal-case text-xl">sidestep</a>
         </div>
         <div class="flex-none">
             <label class="swap swap-rotate">
@@ -23,18 +24,18 @@
     </nav>
 
     <main class="flex-grow container mx-auto px-4">
-        <section class="hero min-h-screen">
+        <section class="hero min-h-screen bg-base-200">
             <div class="hero-content text-center">
                 <div class="max-w-md">
-                    <h1 class="text-5xl font-bold mb-8">Get more remote job interviews. (After that, it's over to you. Remember to hit F2 to unmute.)</h1>
-                    <p class="text-2xl mb-8">Sidestep the spam and take control of your career.</p>
-                    <div class="alert alert-warning shadow-lg mb-8">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                            <span>Save yourself from the eternal cycle of scroll, apply, ghost.</span>
-                        </div>
+                    <h1 class="text-5xl font-bold mb-8" id="hero-title">Get more remote job interviews.</h1>
+                    <p class="text-2xl mb-8" id="hero-subtitle">You've got it from there (remember to unmute your mic though 😉)</p>
+                    <div class="form-control w-52 mx-auto">
+                        <label class="cursor-pointer label">
+                            <span class="label-text">Toggle message</span> 
+                            <input type="checkbox" class="toggle toggle-primary" id="message-toggle" />
+                        </label>
                     </div>
-                    <p class="mb-8">We make searching for jobs and meeting great candidates easier and faster. Our goal? Make 3rd party recruiters irrelevant in the age of AI and remote work.</p>
+                    <button class="btn btn-primary mt-4">Get Started</button>
                 </div>
             </div>
         </section>
@@ -68,7 +69,7 @@
                 </div>
                 <div class="card bg-base-100 shadow-xl">
                     <div class="card-body">
-                        <h2 class="card-title"><i class="fas fa-unicorn mr-2"></i>Unicorn</h2>
+                        <h2 class="card-title">Unicorn</h2>
                         <p>You are not a horse. You're a unicorn. And unicorns shouldn't rely on CVs and covering letters. Increase your chances of a follow-up call from your application by 182%*</p>
                     </div>
                 </div>
@@ -81,11 +82,73 @@
             </div>
         </section>
 
-        <section class="py-16 text-center">
-            <h2 class="text-3xl font-bold mb-8">Ready to level up your job search?</h2>
-            <button class="btn btn-primary btn-lg">Give our tools a whirl</button>
-            <p class="mt-4">or</p>
-            <button class="btn btn-secondary btn-lg mt-4">Browse our curated remote job board</button>
+        <section class="py-16">
+            <h2 class="text-3xl font-bold mb-8 text-center">Job Application Calculator</h2>
+            <div class="card bg-base-100 shadow-xl">
+                <div class="card-body">
+                    <h3 class="card-title">Save time on your job search</h3>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Number of job applications</span>
+                        </label>
+                        <input type="number" placeholder="Enter number" class="input input-bordered" id="job-apps" />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Desired salary</span>
+                        </label>
+                        <input type="number" placeholder="Enter amount" class="input input-bordered" id="desired-salary" />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Job to start within</span>
+                        </label>
+                        <select class="select select-bordered" id="start-time">
+                            <option value="1">1 month</option>
+                            <option value="3">3 months</option>
+                            <option value="6">6 months</option>
+                        </select>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-bold">Time taken to find a job</h4>
+                        <div class="stat-value text-primary" id="time-taken">Calculating...</div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="font-bold">Using sidestep</h4>
+                        <div class="stat-value text-secondary" id="sidestep-time">Calculating...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <h2 class="text-3xl font-bold mb-8 text-center">Time Until Your Next Career Move</h2>
+            <div class="grid grid-flow-col gap-5 text-center auto-cols-max justify-center">
+                <div class="flex flex-col">
+                    <span class="countdown font-mono text-5xl">
+                      <span style="--value:15;"></span>
+                    </span>
+                    days
+                </div> 
+                <div class="flex flex-col">
+                    <span class="countdown font-mono text-5xl">
+                      <span style="--value:10;"></span>
+                    </span>
+                    hours
+                </div> 
+                <div class="flex flex-col">
+                    <span class="countdown font-mono text-5xl">
+                      <span style="--value:24;"></span>
+                    </span>
+                    min
+                </div> 
+                <div class="flex flex-col">
+                    <span class="countdown font-mono text-5xl">
+                      <span style="--value:52;"></span>
+                    </span>
+                    sec
+                </div>
+            </div>
         </section>
     </main>
 
@@ -104,48 +167,10 @@
             </div>
         </div> 
         <div>
-            <p>Copyright © 2023 - All right reserved by RemoteJobHub Ltd</p>
+            <p>Copyright © 2023 - All right reserved by sidestep Ltd</p>
         </div>
     </footer>
 
-    <button id="back-to-top" class="btn btn-circle btn-lg fixed bottom-8 right-8 hidden">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script>
-        // Theme toggle
-        const themeController = document.querySelector('.theme-controller');
-        themeController.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                backToTopButton.classList.remove('hidden');
-            } else {
-                backToTopButton.classList.add('hidden');
-            }
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
